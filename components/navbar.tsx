@@ -45,7 +45,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#" className="font-mono text-accent font-bold text-lg">
-          Carlos Alberto
+          {'<CA />'}
         </a>
 
         {/* Desktop Navigation */}
