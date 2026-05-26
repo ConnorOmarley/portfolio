@@ -1,6 +1,6 @@
 "use client"
 
-import { ExternalLink, Github, Cloud, Code, Clock, Calendar } from 'lucide-react'
+import { ExternalLink, Github, Clock, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface Project {
@@ -15,22 +15,6 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    title: 'Projeto AWS Cloud',
-    description: 'Projeto de certificação AWS Cloud Practitioner em desenvolvimento. Aplicação prática dos conceitos de cloud computing.',
-    tags: ['AWS', 'Cloud', 'DevOps'],
-    status: 'in-progress',
-    icon: <Cloud className="text-[#FF9900]" size={32} />,
-  },
-  {
-    title: 'Aplicação Web',
-    description: 'Projeto web full stack utilizando tecnologias modernas. Landing page responsiva com funcionalidades dinâmicas.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
-    status: 'completed',
-    icon: <Code className="text-accent" size={32} />,
-    demoUrl: '#',
-    githubUrl: 'https://github.com/ConnorOmarley',
-  },
   {
     title: 'Acompanha',
     description: 'SaaS para pedagogos e psicopedagogos — agenda de sessões, prontuários e cobranças com assinatura recorrente.',
