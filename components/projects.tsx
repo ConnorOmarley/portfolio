@@ -1,6 +1,6 @@
 "use client"
 
-import { ExternalLink, Github, Cloud, Code, Clock } from 'lucide-react'
+import { ExternalLink, Github, Cloud, Code, Clock, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface Project {
@@ -30,6 +30,14 @@ const projects: Project[] = [
     icon: <Code className="text-accent" size={32} />,
     demoUrl: '#',
     githubUrl: 'https://github.com/ConnorOmarley',
+  },
+  {
+    title: 'Acompanha',
+    description: 'SaaS para pedagogos e psicopedagogos — agenda de sessões, prontuários e cobranças com assinatura recorrente.',
+    tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
+    status: 'completed',
+    icon: <Calendar className="text-[#7c3aed]" size={32} />,
+    demoUrl: 'https://acompanha-kappa.vercel.app',
   },
   {
     title: 'Mais projetos em breve',
