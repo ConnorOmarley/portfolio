@@ -37,6 +37,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
     status: 'completed',
     icon: <Calendar className="text-[#7c3aed]" size={32} />,
+    image: '/acompanha-preview.jpeg',
     demoUrl: 'https://acompanha-kappa.vercel.app',
   },
   {
@@ -88,13 +89,31 @@ export function Projects() {
               className="glass-card rounded-xl overflow-hidden gradient-border glow-hover transition-all duration-300 group"
             >
               {/* Project Image/Icon Area */}
-              <div className="h-48 bg-gradient-to-br from-secondary to-background flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                <div className="relative z-10 float-animation">
-                  {project.icon}
-                </div>
+              <div className="h-48 bg-gradient-to-br from-secondary to-background flex items-center justify-center relative overflow-hidden">
+                {project.image ? (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0"
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                  </a>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                    <div className="relative z-10 float-animation">
+                      {project.icon}
+                    </div>
+                  </>
+                )}
                 {/* Status Badge */}
-                <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium ${statusColors[project.status]}`}>
+                <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium z-10 ${statusColors[project.status]}`}>
                   {statusLabels[project.status]}
                 </span>
               </div>
