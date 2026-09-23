@@ -1,6 +1,6 @@
 "use client"
 
-import { ExternalLink, Github, Clock, Calendar } from 'lucide-react'
+import { ExternalLink, Github, Clock, Calendar, Scissors } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface Project {
@@ -23,6 +23,14 @@ const projects: Project[] = [
     icon: <Calendar className="text-[#7c3aed]" size={32} />,
     image: '/acompanha-preview.jpeg',
     demoUrl: 'https://acompanha-kappa.vercel.app',
+  },
+  {
+    title: 'Sistema de Gestão para Barbearia',
+    description: 'Caixa, atendimentos e comissões em um sistema completo — 100% offline, roda direto do pen drive em qualquer PC Windows sem instalar nada, com relatórios financeiros protegidos por senha.',
+    tags: ['Node.js', 'Express', 'JavaScript', 'SQLite (sql.js)'],
+    status: 'completed',
+    icon: <Scissors className="text-[#7c3aed]" size={32} />,
+    githubUrl: 'https://github.com/ConnorOmarley/sistema-gestao-barbearia',
   },
   {
     title: 'Mais projetos em breve',
