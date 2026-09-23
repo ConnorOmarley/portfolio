@@ -7,8 +7,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'WhatsApp',
-    value: '+55 (81) 97115-2754',
-    href: 'https://wa.me/5581971152754',
+    value: '+55 (81) 99907-0229',
+    href: 'https://wa.me/5581999070229',
   },
   {
     icon: Mail,
@@ -34,7 +34,7 @@ export function Contact() {
   const whatsappMessage = encodeURIComponent(
     'Olá Carlos! Vim pelo seu portfólio e gostaria de conversar.'
   )
-  const whatsappLink = `https://wa.me/5581971152754?text=${whatsappMessage}`
+  const whatsappLink = `https://wa.me/5581999070229?text=${whatsappMessage}`
 
   return (
     <section id="contato" className="py-20 md:py-32 relative">

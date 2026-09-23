@@ -4,7 +4,7 @@ export function WhatsAppButton() {
   const whatsappMessage = encodeURIComponent(
     'Olá Carlos! Vim pelo seu portfólio e gostaria de conversar.'
   )
-  const whatsappLink = `https://wa.me/5581971152754?text=${whatsappMessage}`
+  const whatsappLink = `https://wa.me/5581999070229?text=${whatsappMessage}`
 
   return (
     <a

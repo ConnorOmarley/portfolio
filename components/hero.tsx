@@ -46,7 +46,7 @@ export function Hero() {
   const whatsappMessage = encodeURIComponent(
     'Olá Carlos! Vim pelo seu portfólio e gostaria de fazer um orçamento.'
   )
-  const whatsappLink = `https://wa.me/5581971152754?text=${whatsappMessage}`
+  const whatsappLink = `https://wa.me/5581999070229?text=${whatsappMessage}`
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-background">
