@@ -30,7 +30,7 @@ const projects: Project[] = [
     tags: ['Node.js', 'Express', 'JavaScript', 'SQLite (sql.js)'],
     status: 'completed',
     icon: <Scissors className="text-[#7c3aed]" size={32} />,
-    image: '/barbearia-preview.png',
+    image: '/barbearia-preview.jpg',
     githubUrl: 'https://github.com/ConnorOmarley/sistema-gestao-barbearia',
   },
   {
