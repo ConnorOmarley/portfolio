@@ -41,6 +41,10 @@ const projects: Project[] = [
   },
 ]
 
+function openProject(url?: string) {
+  if (url) window.open(url, '_blank', 'noopener,noreferrer')
+}
+
 const statusLabels = {
   'completed': 'Concluído',
   'in-progress': 'Em desenvolvimento',
@@ -75,95 +79,105 @@ export function Projects() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="glass-card rounded-xl overflow-hidden gradient-border glow-hover transition-all duration-300 group"
-            >
-              {/* Project Image/Icon Area */}
-              <div className="h-48 bg-gradient-to-br from-secondary to-background flex items-center justify-center relative overflow-hidden">
-                {project.image ? (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0"
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                  </a>
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                    <div className="relative z-10 float-animation">
-                      {project.icon}
-                    </div>
-                  </>
-                )}
-                {/* Status Badge */}
-                <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium z-10 ${statusColors[project.status]}`}>
-                  {statusLabels[project.status]}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-secondary rounded text-xs text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          {projects.map((project, index) => {
+            const url = project.demoUrl || project.githubUrl
+            return (
+              <div
+                key={index}
+                role={url ? 'link' : undefined}
+                tabIndex={url ? 0 : undefined}
+                onClick={url ? () => openProject(url) : undefined}
+                onKeyDown={(e) => {
+                  if (url && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault()
+                    openProject(url)
+                  }
+                }}
+                className="glass-card rounded-xl overflow-hidden gradient-border glow-hover transition-all duration-300 group"
+                style={url ? { cursor: 'pointer' } : undefined}
+              >
+                {/* Project Image/Icon Area */}
+                <div className="h-48 bg-gradient-to-br from-secondary to-background flex items-center justify-center relative overflow-hidden">
+                  {project.image ? (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                      <div className="relative z-10 float-animation">
+                        {project.icon}
+                      </div>
+                    </>
+                  )}
+                  {/* Status Badge */}
+                  <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium z-10 ${statusColors[project.status]}`}>
+                    {statusLabels[project.status]}
+                  </span>
                 </div>
 
-                {/* Action Buttons */}
-                {project.status === 'completed' && (
-                  <div className="flex gap-3">
-                    {project.demoUrl && (
-                      <Button
-                        asChild
-                        size="sm"
-                        className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-secondary rounded text-xs text-muted-foreground"
                       >
-                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink size={16} className="mr-2" />
-                          Ver Demo
-                        </a>
-                      </Button>
-                    )}
-                    {project.githubUrl && (
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className="flex-1 border-accent/50 text-accent hover:bg-accent/10"
-                      >
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github size={16} className="mr-2" />
-                          GitHub
-                        </a>
-                      </Button>
-                    )}
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                )}
+
+                  {/* Action Buttons */}
+                  {project.status === 'completed' && (
+                    <div className="flex gap-3">
+                      {project.demoUrl && (
+                        <Button
+                          asChild
+                          size="sm"
+                          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                          className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+                        >
+                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink size={16} className="mr-2" />
+                            Ver Demo
+                          </a>
+                        </Button>
+                      )}
+                      {project.githubUrl && (
+                        <Button
+                          asChild
+                          size="sm"
+                          variant="outline"
+                          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                          className="flex-1 border-accent/50 text-accent hover:bg-accent/10"
+                        >
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github size={16} className="mr-2" />
+                            GitHub
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
