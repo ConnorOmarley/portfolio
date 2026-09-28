@@ -67,7 +67,6 @@ lib/                    # utilitários (cn) e dados das seções
 - **Não há formulário de contato.** A seção de contato é só exibição: WhatsApp, e-mail, LinkedIn e localização, com um botão de deep-link para o WhatsApp (`wa.me` com mensagem pré-preenchida). Nada é enviado a servidor nenhum.
 - **Projetos e certificações estão hardcoded no componente** (`components/projects.tsx`, `components/certifications.tsx`). Hoje são 2 projetos e 1 certificação (AWS Cloud Practitioner) — o terceiro card é um placeholder de "mais projetos em breve". Virar CMS ou fetch é o próximo passo.
 - **As partículas usam `Math.random()` na renderização** (`particles.tsx:42`), então a opacidade delas muda a cada re-render do componente. Não quebra nada, mas é um efeito colateral evitável — o valor deveria sair do `useState`.
-- **Duas URLs de LinkedIn diferentes circulam:** o `README` do [perfil](https://github.com/ConnorOmarley/ConnorOmarley) aponta para `carlos-alberto-7154b3344` e este site aponta para `carlos-mchagas`. Faltapadronizar.
 
 ## Licença
 
