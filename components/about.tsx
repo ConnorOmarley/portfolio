@@ -5,13 +5,13 @@ import { GraduationCap, Clock, MapPin, Briefcase } from 'lucide-react'
 const stats = [
   {
     icon: GraduationCap,
-    label: '3º Período ADS',
+    label: '4º Período ADS',
     description: 'UNIBRA',
   },
   {
     icon: Clock,
     label: '344h AWS',
-    description: 'Em andamento',
+    description: 'Concluído',
   },
   {
     icon: MapPin,

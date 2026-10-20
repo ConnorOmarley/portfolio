@@ -1,14 +1,14 @@
 "use client"
 
-import { Award, Clock } from 'lucide-react'
+import { Award, CheckCircle2 } from 'lucide-react'
 
 const certifications = [
   {
     title: 'AWS Cloud Practitioner',
     issuer: 'Amazon Web Services',
-    status: 'in-progress',
+    status: 'completed',
     hours: 344,
-    totalHours: 500,
+    totalHours: 344,
     description: 'Certificação fundamental de cloud computing que valida o conhecimento geral sobre AWS.',
     color: '#FF9900',
   },
@@ -56,9 +56,9 @@ export function Certifications() {
                     <h3 className="text-xl font-bold text-foreground">
                       {cert.title}
                     </h3>
-                    <span className="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full flex items-center gap-1">
-                      <Clock size={12} />
-                      Em andamento
+                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full flex items-center gap-1">
+                      <CheckCircle2 size={12} />
+                      Concluído
                     </span>
                   </div>
                   
