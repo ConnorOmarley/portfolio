@@ -33,7 +33,7 @@ const projects: Project[] = [
     tags: ['PHP', 'Laravel', 'React', 'MySQL', 'Docker'],
     status: 'in-progress',
     icon: <Server className="text-[#7c3aed]" size={32} />,
-    image: '/sos-painel-preview.png',
+    image: '/sos-preview.png',
     githubUrl: 'https://github.com/Matheus-Br09/InterADS4M',
   },
   {
