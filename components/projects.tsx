@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { ExternalLink, Github, Calendar, Scissors, Server, Link2, Store, ShoppingBag, Monitor, Globe, Wrench, Sparkles, Car } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Scissors, Server, Link2, Store, ShoppingBag, Monitor, Globe, Wrench, Sparkles, Car, PenTool } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const PAGE_SIZE = 6
@@ -82,6 +82,16 @@ const projects: Project[] = [
     icon: <Wrench className="text-[#7c3aed]" size={32} />,
     image: '/chaveiro-preview.webp',
     demoUrl: 'https://chaveiro-site.vercel.app/',
+    githubUrl: 'https://github.com/ConnorOmarley/chaveiro-site',
+  },
+  {
+    title: 'Gravura Art Studio',
+    description: 'Site de demonstração para estúdio de tatuagem no Recife: estilos de trabalho, galeria, localização e pedido de orçamento pelo WhatsApp.',
+    tags: ['Vite', 'JavaScript', 'Demonstração'],
+    status: 'completed',
+    icon: <PenTool className="text-[#7c3aed]" size={32} />,
+    image: '/studio-tatuagem-preview.png',
+    githubUrl: 'https://github.com/ConnorOmarley/studio-tatuagem',
   },
   {
     title: 'Aura Estética',
