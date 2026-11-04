@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { ExternalLink, Github, Calendar, Scissors, Server, Link2, Store, ShoppingBag, Monitor } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Scissors, Server, Link2, Store, ShoppingBag, Monitor, Globe, Wrench, Sparkles, Car } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const PAGE_SIZE = 6
@@ -35,6 +35,25 @@ const projects: Project[] = [
     icon: <Server className="text-[#7c3aed]" size={32} />,
   },
   {
+    title: 'Impulso Tech',
+    description: 'Site da nossa agência: sites, landing pages, aplicativos e sistemas sob medida para negócios.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'completed',
+    icon: <Globe className="text-[#7c3aed]" size={32} />,
+    image: '/impulso-tech-preview.png',
+    demoUrl: 'https://impulso-tech-site.vercel.app/',
+  },
+  {
+    title: 'Portfólio',
+    description: 'Este site: apresentação, stack, projetos, certificações e contato, com tema claro/escuro.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    status: 'completed',
+    icon: <Globe className="text-[#7c3aed]" size={32} />,
+    image: '/portfolio-preview.png',
+    demoUrl: 'https://portfolio-mauve-two-57.vercel.app/',
+    githubUrl: 'https://github.com/ConnorOmarley/portfolio',
+  },
+  {
     title: 'Acompanha',
     description: 'SaaS para pedagogos e psicopedagogos — agenda de sessões, prontuários e cobranças com assinatura recorrente.',
     tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
@@ -51,6 +70,42 @@ const projects: Project[] = [
     icon: <Link2 className="text-[#7c3aed]" size={32} />,
     demoUrl: 'https://connoromarley.github.io/bio-site/',
     githubUrl: 'https://github.com/ConnorOmarley/bio-site',
+  },
+  {
+    title: 'Chaveiro Maré Alta',
+    description: 'Site de demonstração para chaveiro 24 horas no Recife: serviços, preços, dúvidas e orçamento pelo WhatsApp.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'completed',
+    icon: <Wrench className="text-[#7c3aed]" size={32} />,
+    image: '/chaveiro-preview.webp',
+    demoUrl: 'https://chaveiro-site.vercel.app/',
+  },
+  {
+    title: 'Aura Estética',
+    description: 'Site de demonstração para clínica de estética e bem-estar: procedimentos, equipe e agendamento de avaliação.',
+    tags: ['Landing page', 'Demonstração'],
+    status: 'completed',
+    icon: <Sparkles className="text-[#7c3aed]" size={32} />,
+    image: '/aura-estetica-preview.webp',
+    demoUrl: 'https://aura-estetica-six.vercel.app/',
+  },
+  {
+    title: 'Blackline Detailing',
+    description: 'Site de demonstração para estética automotiva premium: serviços, resultados, localização e pedido de orçamento.',
+    tags: ['Landing page', 'Demonstração'],
+    status: 'completed',
+    icon: <Car className="text-[#7c3aed]" size={32} />,
+    image: '/blackline-preview.webp',
+    demoUrl: 'https://esteticaautomotiva-azure.vercel.app/',
+  },
+  {
+    title: 'Oficina Prime',
+    description: 'Site de demonstração para centro automotivo premium: serviços, avaliações e solicitação de orçamento.',
+    tags: ['Landing page', 'Demonstração'],
+    status: 'completed',
+    icon: <Wrench className="text-[#7c3aed]" size={32} />,
+    image: '/oficina-prime-preview.webp',
+    demoUrl: 'https://oficina-prime.vercel.app/',
   },
   {
     title: 'BarberFlow',
