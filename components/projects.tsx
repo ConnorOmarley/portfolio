@@ -1,7 +1,10 @@
 "use client"
 
-import { ExternalLink, Github, Clock, Calendar, Scissors } from 'lucide-react'
+import { useState } from 'react'
+import { ExternalLink, Github, Calendar, Scissors, Server, Link2, Store, ShoppingBag, Monitor } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+
+const PAGE_SIZE = 6
 
 interface Project {
   title: string
@@ -16,17 +19,8 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Acompanha',
-    description: 'SaaS para pedagogos e psicopedagogos — agenda de sessões, prontuários e cobranças com assinatura recorrente.',
-    tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
-    status: 'completed',
-    icon: <Calendar className="text-[#7c3aed]" size={32} />,
-    image: '/acompanha-preview.jpeg',
-    demoUrl: 'https://acompanha-kappa.vercel.app',
-  },
-  {
-    title: 'Sistema de Gestão para Barbearia',
-    description: 'Caixa, atendimentos e comissões em um sistema completo — 100% offline, roda direto do pen drive em qualquer PC Windows sem instalar nada, com relatórios financeiros protegidos por senha.',
+    title: 'Sistema de Gestão Financeira para Barbearia',
+    description: 'Gestão financeira completa, vendida a um cliente real por R$ 500: caixa, atendimentos e comissões por barbeiro, 100% offline — roda direto do pen drive em qualquer PC Windows, com relatórios protegidos por senha.',
     tags: ['Node.js', 'Express', 'JavaScript', 'SQLite (sql.js)'],
     status: 'completed',
     icon: <Scissors className="text-[#7c3aed]" size={32} />,
@@ -34,11 +28,61 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/ConnorOmarley/sistema-gestao-barbearia',
   },
   {
-    title: 'Mais projetos em breve',
-    description: 'Estou constantemente trabalhando em novos projetos. Em breve mais novidades aqui!',
-    tags: ['React', 'Node.js', 'TypeScript'],
-    status: 'coming-soon',
-    icon: <Clock className="text-purple" size={32} />,
+    title: 'SOS Tudo pelo Social',
+    description: 'Backend do sistema da ONG (Paulista/PE), projeto autônomo: API REST com autenticação, portal de transparência e cadastro de voluntários. Responsável pelo código, testes, versionamento e regras de negócio.',
+    tags: ['PHP', 'Laravel', 'MySQL', 'Docker'],
+    status: 'in-progress',
+    icon: <Server className="text-[#7c3aed]" size={32} />,
+  },
+  {
+    title: 'Acompanha',
+    description: 'SaaS para pedagogos e psicopedagogos — agenda de sessões, prontuários e cobranças com assinatura recorrente.',
+    tags: ['Next.js', 'Supabase', 'TypeScript', 'SaaS'],
+    status: 'in-progress',
+    icon: <Calendar className="text-[#7c3aed]" size={32} />,
+    image: '/acompanha-preview.jpeg',
+    githubUrl: 'https://github.com/ConnorOmarley/sistema_agendamento',
+  },
+  {
+    title: 'Bio Site com agendamento',
+    description: 'Página de link na bio com agendamento por WhatsApp, Pix e QR Code.',
+    tags: ['WhatsApp', 'Pix', 'QR Code'],
+    status: 'completed',
+    icon: <Link2 className="text-[#7c3aed]" size={32} />,
+    demoUrl: 'https://connoromarley.github.io/bio-site/',
+    githubUrl: 'https://github.com/ConnorOmarley/bio-site',
+  },
+  {
+    title: 'BarberFlow',
+    description: 'Gestão para barbearia: agenda, financeiro, comissões e pacotes. Multi-tenant com Supabase e Asaas.',
+    tags: ['Supabase', 'PostgreSQL', 'Multi-tenant', 'Asaas'],
+    status: 'completed',
+    icon: <Scissors className="text-[#7c3aed]" size={32} />,
+    githubUrl: 'https://github.com/ConnorOmarley/barberflow-saas',
+  },
+  {
+    title: 'Boutique Chat Chic',
+    description: 'Catálogo com vitrine pública e painel administrativo. RLS no Postgres e validação em PL/pgSQL.',
+    tags: ['PostgreSQL', 'PL/pgSQL', 'RLS'],
+    status: 'completed',
+    icon: <ShoppingBag className="text-[#7c3aed]" size={32} />,
+    githubUrl: 'https://github.com/ConnorOmarley/boutique-chat-chic',
+  },
+  {
+    title: 'Encanto Feminino',
+    description: 'Catálogo para WhatsApp em landing page: zero build, zero dependência.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'completed',
+    icon: <Store className="text-[#7c3aed]" size={32} />,
+    githubUrl: 'https://github.com/ConnorOmarley/Encanto_feminino',
+  },
+  {
+    title: 'TecSuporte Recife',
+    description: 'Landing page de suporte técnico para computador.',
+    tags: ['HTML', 'CSS'],
+    status: 'completed',
+    icon: <Monitor className="text-[#7c3aed]" size={32} />,
+    githubUrl: 'https://github.com/ConnorOmarley/tecsuporte-recife',
   },
 ]
 
@@ -59,6 +103,9 @@ const statusColors = {
 }
 
 export function Projects() {
+  const [visible, setVisible] = useState(PAGE_SIZE)
+  const shown = projects.slice(0, visible)
+  const hasMore = visible < projects.length
   return (
     <section id="projetos" className="py-20 md:py-32 relative">
       <div className="container mx-auto px-4">
@@ -80,7 +127,7 @@ export function Projects() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => {
+          {shown.map((project, index) => {
             const url = project.demoUrl || project.githubUrl
             return (
               <div
@@ -127,7 +174,7 @@ export function Projects() {
                   <h3 className="text-xl font-bold text-foreground mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-5">
                     {project.description}
                   </p>
 
@@ -144,7 +191,7 @@ export function Projects() {
                   </div>
 
                   {/* Action Buttons */}
-                  {project.status === 'completed' && (
+                  {(project.demoUrl || project.githubUrl) && (
                     <div className="flex gap-3">
                       {project.demoUrl && (
                         <Button
@@ -180,6 +227,18 @@ export function Projects() {
             )
           })}
         </div>
+
+        {projects.length > PAGE_SIZE && (
+          <div className="flex justify-center mt-10">
+            <Button
+              variant="outline"
+              onClick={() => (hasMore ? setVisible((v) => v + PAGE_SIZE) : setVisible(PAGE_SIZE))}
+              className="border-accent/50 text-accent hover:bg-accent/10"
+            >
+              {hasMore ? `Ver mais (${projects.length - visible})` : 'Ver menos'}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
