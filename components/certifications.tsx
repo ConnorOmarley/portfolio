@@ -2,14 +2,31 @@
 
 import { Award, CheckCircle2 } from 'lucide-react'
 
-const certifications = [
+interface Certification {
+  title: string
+  issuer: string
+  status: 'completed' | 'in-progress'
+  hours?: number
+  totalHours?: number
+  description: string
+  color: string
+}
+
+const certifications: Certification[] = [
   {
-    title: 'AWS Cloud Practitioner',
-    issuer: 'Amazon Web Services',
+    title: 'AWS re/Start Graduate',
+    issuer: 'Amazon Web Services Training and Certification · Instituto Aliança com o Adolescente',
     status: 'completed',
-    hours: 344,
-    totalHours: 344,
-    description: 'Certificação fundamental de cloud computing que valida o conhecimento geral sobre AWS.',
+    hours: 335,
+    totalHours: 335,
+    description: 'Programa de formação em computação em nuvem com laboratórios práticos, concluído em out. de 2026. Curso de extensão universitária certificado pela Universidade Estadual do Ceará (UECE).',
+    color: '#FF9900',
+  },
+  {
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    status: 'in-progress',
+    description: 'Certificação fundamental de cloud computing. Em preparação para a prova.',
     color: '#FF9900',
   },
 ]
@@ -30,12 +47,12 @@ export function Certifications() {
             <span className="gradient-text">contínuo</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Certificações e cursos que estou realizando para me manter atualizado.
+            Certificações e cursos que concluí e que estou realizando para me manter atualizado.
           </p>
         </div>
 
         {/* Certifications Grid */}
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto space-y-6">
           {certifications.map((cert, index) => (
             <div
               key={index}
@@ -56,16 +73,23 @@ export function Certifications() {
                     <h3 className="text-xl font-bold text-foreground">
                       {cert.title}
                     </h3>
-                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full flex items-center gap-1">
-                      <CheckCircle2 size={12} />
-                      Concluído
-                    </span>
+                    {cert.status === 'completed' ? (
+                      <span className="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full flex items-center gap-1">
+                        <CheckCircle2 size={12} />
+                        Concluído
+                      </span>
+                    ) : (
+                      <span className="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full">
+                        Em preparação
+                      </span>
+                    )}
                   </div>
                   
                   <p className="text-accent text-sm mb-3">{cert.issuer}</p>
                   <p className="text-muted-foreground text-sm mb-4">{cert.description}</p>
 
-                  {/* Progress */}
+                  {/* Progress (só para quem tem carga horária) */}
+                  {cert.hours !== undefined && cert.totalHours !== undefined && (
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Progresso</span>
@@ -86,6 +110,7 @@ export function Certifications() {
                       {Math.round((cert.hours / cert.totalHours) * 100)}% concluído
                     </p>
                   </div>
+                  )}
                 </div>
               </div>
             </div>

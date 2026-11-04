@@ -61,7 +61,7 @@ lib/                    # utilitários (cn) e dados das seções
 
 - **Não tem suíte de testes.** Validação manual e por `npm run build`.
 - **Não há formulário de contato.** A seção de contato é só exibição: WhatsApp, e-mail, LinkedIn e localização, com um botão de deep-link para o WhatsApp (`wa.me` com mensagem pré-preenchida). Nada é enviado a servidor nenhum.
-- **Projetos e certificações estão hardcoded no componente** (`components/projects.tsx`, `components/certifications.tsx`). Hoje são 2 projetos e 1 certificação (AWS Cloud Practitioner) — o terceiro card é um placeholder de "mais projetos em breve". Virar CMS ou fetch é o próximo passo.
+- **Projetos e certificações estão hardcoded no componente** (`components/projects.tsx`, `components/certifications.tsx`). Hoje são 14 projetos (mostrados 6 por vez, com "Ver mais") e 2 certificações (AWS re/Start Graduate, concluída, e AWS Certified Cloud Practitioner, em preparação). Virar CMS ou fetch é o próximo passo.
 - **As partículas usam `Math.random()` na renderização** (`particles.tsx:42`), então a opacidade delas muda a cada re-render do componente. Não quebra nada, mas é um efeito colateral evitável — o valor deveria sair do `useState`.
 
 ## 📝 Licença

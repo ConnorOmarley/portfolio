@@ -10,7 +10,7 @@ const stats = [
   },
   {
     icon: Clock,
-    label: '344h AWS',
+    label: '335h AWS',
     description: 'Concluído',
   },
   {
