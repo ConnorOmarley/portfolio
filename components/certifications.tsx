@@ -33,6 +33,22 @@ const certifications: Certification[] = [
   },
 ]
 
+// Cursos curtos concluídos na plataforma AWS Skill Builder (todos em português)
+const awsCourses = [
+  'Exploring Artificial Intelligence Use Cases and Applications',
+  'Fundamentals of Machine Learning and Artificial Intelligence',
+  'Introduction to Generative AI - Art of the Possible',
+  'Planning a Generative AI Project',
+  'Responsible Artificial Intelligence Practices',
+  'Developing Machine Learning Solutions',
+  'Developing Generative Artificial Intelligence Solutions',
+  'Essentials of Prompt Engineering',
+  'Foundations of Prompt Engineering',
+  'Amazon Bedrock Getting Started',
+  'Optimizing Foundation Models',
+  'Security, Compliance, and Governance for AI Solutions',
+]
+
 export function Certifications() {
   return (
     <section id="certificacoes" className="py-20 md:py-32 relative">
@@ -129,6 +145,33 @@ export function Certifications() {
               </div>
             </div>
           ))}
+
+          {/* Cursos curtos AWS Skill Builder */}
+          <div className="glass-card rounded-xl p-6 md:p-8 glow-hover transition-all duration-300">
+            <div className="flex items-center gap-3 mb-2">
+              <h3 className="text-xl font-bold text-foreground">
+                Cursos AWS Skill Builder
+              </h3>
+              <span className="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full flex items-center gap-1">
+                <CheckCircle2 size={12} />
+                {awsCourses.length} concluídos
+              </span>
+            </div>
+            <p className="text-accent text-sm mb-3">Amazon Web Services · cursos em português</p>
+            <p className="text-muted-foreground text-sm mb-4">
+              Cursos curtos de inteligência artificial, aprendizado de máquina e engenharia de prompts.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {awsCourses.map((course) => (
+                <span
+                  key={course}
+                  className="px-2 py-1 bg-secondary rounded text-xs text-muted-foreground"
+                >
+                  {course}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
