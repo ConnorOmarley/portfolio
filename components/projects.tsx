@@ -68,6 +68,7 @@ const projects: Project[] = [
     tags: ['WhatsApp', 'Pix', 'QR Code'],
     status: 'completed',
     icon: <Link2 className="text-[#7c3aed]" size={32} />,
+    image: '/bio-site-preview.png',
     demoUrl: 'https://connoromarley.github.io/bio-site/',
     githubUrl: 'https://github.com/ConnorOmarley/bio-site',
   },
@@ -129,6 +130,7 @@ const projects: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript'],
     status: 'completed',
     icon: <Store className="text-[#7c3aed]" size={32} />,
+    image: '/encanto-feminino-preview.png',
     githubUrl: 'https://github.com/ConnorOmarley/Encanto_feminino',
   },
   {
@@ -137,6 +139,7 @@ const projects: Project[] = [
     tags: ['HTML', 'CSS'],
     status: 'completed',
     icon: <Monitor className="text-[#7c3aed]" size={32} />,
+    image: '/tecsuporte-preview.png',
     githubUrl: 'https://github.com/ConnorOmarley/tecsuporte-recife',
   },
 ]
