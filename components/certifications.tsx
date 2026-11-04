@@ -1,8 +1,9 @@
 "use client"
 
-import { Award, CheckCircle2 } from 'lucide-react'
+import { Award, CheckCircle2, ExternalLink } from 'lucide-react'
 
 interface Certification {
+  credentialUrl?: string
   title: string
   issuer: string
   status: 'completed' | 'in-progress'
@@ -19,6 +20,7 @@ const certifications: Certification[] = [
     status: 'completed',
     hours: 335,
     totalHours: 335,
+    credentialUrl: 'https://www.credly.com/badges/edc0a699-f76d-42cd-b9a8-3d1f4cd9528e/public_url',
     description: 'Programa de formação em computação em nuvem com laboratórios práticos, concluído em out. de 2026. Curso de extensão universitária certificado pela Universidade Estadual do Ceará (UECE).',
     color: '#FF9900',
   },
@@ -110,6 +112,18 @@ export function Certifications() {
                       {Math.round((cert.hours / cert.totalHours) * 100)}% concluído
                     </p>
                   </div>
+                  )}
+
+                  {cert.credentialUrl && (
+                    <a
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-md border border-accent/50 text-accent text-sm font-medium hover:bg-accent/10 transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      Ver certificado
+                    </a>
                   )}
                 </div>
               </div>
