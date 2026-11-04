@@ -29,10 +29,12 @@ const projects: Project[] = [
   },
   {
     title: 'SOS Tudo pelo Social',
-    description: 'Backend do sistema da ONG (Paulista/PE), projeto autônomo: API REST com autenticação, portal de transparência e cadastro de voluntários. Responsável pelo código, testes, versionamento e regras de negócio.',
-    tags: ['PHP', 'Laravel', 'MySQL', 'Docker'],
+    description: 'Plataforma web da ONG (Paulista/PE), feita em dupla: site em React e API REST em Laravel com painel de gestão, doações por Pix e cadastro de voluntários. Fui responsável pelo backend: código, testes, versionamento e regras de negócio.',
+    tags: ['PHP', 'Laravel', 'React', 'MySQL', 'Docker'],
     status: 'in-progress',
     icon: <Server className="text-[#7c3aed]" size={32} />,
+    image: '/sos-painel-preview.png',
+    githubUrl: 'https://github.com/Matheus-Br09/InterADS4M',
   },
   {
     title: 'Impulso Tech',
@@ -118,10 +120,11 @@ const projects: Project[] = [
   },
   {
     title: 'Boutique Chat Chic',
-    description: 'Catálogo com vitrine pública e painel administrativo. RLS no Postgres e validação em PL/pgSQL.',
-    tags: ['PostgreSQL', 'PL/pgSQL', 'RLS'],
+    description: 'Site de demonstração para boutique feminina: vitrine, coleção, depoimentos, perguntas frequentes e atendimento pelo WhatsApp.',
+    tags: ['TanStack Start', 'React', 'TypeScript', 'Tailwind CSS'],
     status: 'completed',
     icon: <ShoppingBag className="text-[#7c3aed]" size={32} />,
+    image: '/boutique-preview.png',
     githubUrl: 'https://github.com/ConnorOmarley/boutique-chat-chic',
   },
   {
